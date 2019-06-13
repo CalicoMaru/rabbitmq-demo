@@ -1,14 +1,10 @@
 package com.calicomaru.rabbitmqdemo;
 
-import com.calicomaru.rabbitmqdemo.model.Fruit;
-import com.calicomaru.rabbitmqdemo.service.FruitMessageService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.*;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,10 +23,10 @@ public class RabbitmqDemoApplicationTests {
 	@Autowired
 	AmqpAdmin amqpAdmin;
 
-	@Before
-	public void testMsg(){
-		rabbitTemplate.convertAndSend("xswl.haha","haha.haha",new Fruit("Orange", 99.99));
-	}
+//	@Before
+//	public void testMsg(){
+//		rabbitTemplate.convertAndSend("xswl.haha","haha.haha",new Fruit("Orange", 99.99));
+//	}
 
 	@Test
 	public void contextLoads() {
@@ -60,15 +56,14 @@ public class RabbitmqDemoApplicationTests {
 	@Test
 	public void receiveMessage(){
 
-
-		System.out.println(rabbitTemplate.receiveAndConvert("xswl.queue"));
+		//System.out.println(rabbitTemplate.receiveAndConvert("xswl.queue"));
 
 	}
 
 	@Test
 	public void sendMsgFanout(){
 		//routeKey is empty since its fanout mode
-		rabbitTemplate.convertAndSend("xswl.haha","", new Fruit("Apple", 9.99));
+		//rabbitTemplate.convertAndSend("xswl.haha","", new Fruit("Apple", 9.99));
 	}
 
 }
