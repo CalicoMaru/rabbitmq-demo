@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class FruitSender {
 
-    Logger log = LoggerFactory.getLogger(this.getClass());
+    private static final Logger log = LoggerFactory.getLogger(FruitSender.class);
     Fruit fruit = new Fruit("Melon", 19.99);
 
     @Autowired
@@ -18,7 +18,7 @@ public class FruitSender {
 
     public void sendFruitMessage(){
 
-        rabbitTemplate.convertAndSend("haha.haha", fruit);
+        rabbitTemplate.convertAndSend(fruit);
 
         log.debug("Msg Sent");
 

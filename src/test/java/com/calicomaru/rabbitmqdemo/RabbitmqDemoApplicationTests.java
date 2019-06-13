@@ -46,7 +46,7 @@ public class RabbitmqDemoApplicationTests {
 	public void testMsgSend(){
 
 		fruitSender.sendFruitMessage();
-		fruitReceiver.receiveFruitMessage();
+		//fruitReceiver.receiveFruitMessage();
 
 	}
 

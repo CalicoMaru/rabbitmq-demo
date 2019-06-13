@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class FruitReceiver {
 
-    Logger log = LoggerFactory.getLogger(this.getClass());
+    private static final Logger log = LoggerFactory.getLogger(FruitReceiver.class);
 
     @Autowired
     RabbitTemplate rabbitTemplate;
