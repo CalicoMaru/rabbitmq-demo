@@ -1,5 +1,8 @@
 package com.calicomaru.rabbitmqdemo;
 
+import com.calicomaru.rabbitmqdemo.model.Fruit;
+import com.calicomaru.rabbitmqdemo.receiver.FruitReceiver;
+import com.calicomaru.rabbitmqdemo.sender.FruitSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -23,6 +26,12 @@ public class RabbitmqDemoApplicationTests {
 	@Autowired
 	AmqpAdmin amqpAdmin;
 
+	@Autowired
+	FruitSender fruitSender;
+
+	@Autowired
+	FruitReceiver fruitReceiver;
+
 //	@Before
 //	public void testMsg(){
 //		rabbitTemplate.convertAndSend("xswl.haha","haha.haha",new Fruit("Orange", 99.99));
@@ -30,6 +39,14 @@ public class RabbitmqDemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
+	}
+
+	@Test
+	public void testMsgSend(){
+
+		fruitSender.sendFruitMessage();
+		fruitReceiver.receiveFruitMessage();
 
 	}
 

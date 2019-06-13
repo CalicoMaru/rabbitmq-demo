@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MyRabbitMqConfig {
+
     //change to json converter
     @Bean
     public MessageConverter messageConverter(){
